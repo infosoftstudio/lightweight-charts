@@ -12,6 +12,7 @@ The minimal supported version of [NodeJS](https://nodejs.org/) for development i
 
 - `npm run rollup` - runs Rollup to bundle code
 - `npm run build` - compiles source code and bundles it (as one word for `npm run tsc && npm run rollup`)
+- `npm run build:watch` - the same as `npm run build`, but watches for source code changes
 - `npm run build:prod` - the same as `npm run build`, but also bundles production (minified) builds
 
 ## Testing

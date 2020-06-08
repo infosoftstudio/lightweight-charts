@@ -23,6 +23,8 @@ export function shapeSize(shape: SeriesMarkerShape, originalSize: number): numbe
 			return size(originalSize, 0.8);
 		case 'square':
 			return size(originalSize, 0.7);
+		case 'userBet':
+			return size(originalSize, 1.5);
 	}
 
 	ensureNever(shape);

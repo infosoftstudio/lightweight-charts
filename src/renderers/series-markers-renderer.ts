@@ -12,12 +12,23 @@ import { drawArrow, hitTestArrow } from './series-markers-arrow';
 import { drawCircle, hitTestCircle } from './series-markers-circle';
 import { drawSquare, hitTestSquare } from './series-markers-square';
 import { drawText, hitTestText } from './series-markers-text';
+import { drawUserBet, hitTestUserBet } from './series-markers-user-bet';
 
 export interface SeriesMarkerText {
 	content: string;
 	y: Coordinate;
 	width: number;
 	height: number;
+}
+
+export interface User {
+	username: string;
+	image?: string;
+}
+
+export interface UserBetData {
+	user: User;
+	up: boolean;
 }
 
 export interface SeriesMarkerRendererDataItem extends TimedValue {
@@ -28,6 +39,7 @@ export interface SeriesMarkerRendererDataItem extends TimedValue {
 	internalId: number;
 	externalId?: string;
 	text?: SeriesMarkerText;
+	betData?: UserBetData;
 }
 
 export interface SeriesMarkerRendererData {
@@ -94,7 +106,6 @@ export class SeriesMarkersRenderer extends ScaledRenderer {
 
 function drawItem(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingContext2D): void {
 	ctx.fillStyle = item.color;
-
 	if (item.text !== undefined) {
 		drawText(ctx, item.text.content, item.x - item.text.width / 2, item.text.y);
 	}
@@ -119,6 +130,11 @@ function drawShape(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingConte
 			return;
 		case 'square':
 			drawSquare(ctx, item.x, item.y, item.size);
+			return;
+		case 'userBet':
+			if (item.betData) {
+				drawUserBet(ctx, item.x, item.y, item.size, item.betData);
+			}
 			return;
 	}
 
@@ -147,6 +163,8 @@ function hitTestShape(item: SeriesMarkerRendererDataItem, x: Coordinate, y: Coor
 			return hitTestCircle(item.x, item.y, item.size, x, y);
 		case 'square':
 			return hitTestSquare(item.x, item.y, item.size, x, y);
+		case 'userBet':
+			return hitTestUserBet(true, item.x, item.y, item.size, x, y);
 	}
 
 	ensureNever(item.shape);

@@ -1,6 +1,7 @@
+import { UserBetData } from '../renderers/series-markers-renderer';
 export type SeriesMarkerPosition = 'aboveBar' | 'belowBar' | 'inBar';
 
-export type SeriesMarkerShape = 'circle' | 'square' | 'arrowUp' | 'arrowDown';
+export type SeriesMarkerShape = 'circle' | 'square' | 'arrowUp' | 'arrowDown' | 'userBet';
 
 export interface SeriesMarker<TimeType> {
 	time: TimeType;
@@ -10,6 +11,7 @@ export interface SeriesMarker<TimeType> {
 	id?: string;
 	text?: string;
 	size?: number;
+	betData?: UserBetData;
 }
 
 export interface InternalSeriesMarker<TimeType> extends SeriesMarker<TimeType> {

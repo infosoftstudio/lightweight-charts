@@ -525,6 +525,7 @@ export class Series<T extends SeriesType = SeriesType> extends PriceDataSource i
 				internalId: index,
 				text: marker.text,
 				size: marker.size,
+			  betData: marker.betData,
 			};
 		});
 	}

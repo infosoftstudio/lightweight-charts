@@ -1,16 +1,16 @@
 {
   "private": true,
   "version": "3.2.0",
-  "name": "lightweight-charts",
+  "name": "@infosoftstudio/lightweight-charts",
   "author": "TradingView, Inc.",
   "license": "Apache-2.0",
   "description": "Financial lightweight charts built with HTML5 canvas",
   "bugs": {
-    "url": "https://github.com/tradingview/lightweight-charts/issues"
+    "url": "https://github.com/infosoftstudio/lightweight-charts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tradingview/lightweight-charts.git"
+    "url": "git@github.com:infosoftstudio/lightweight-charts.git"
   },
   "module": "dist/lightweight-charts.esm.production.js",
   "main": "index.js",
@@ -105,5 +105,11 @@
     "size-limit": "size-limit",
     "verify": "npm-run-all clean -p lint check-markdown-links build:prod -p tsc-verify test size-limit",
     "test": "mocha tests/unittests/**/*.spec.ts"
+  },
+  "homepage": "https://github.com/infosoftstudio/lightweight-charts#readme",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "tests"
   }
 }
