@@ -105,10 +105,18 @@ export class SeriesMarkersRenderer extends ScaledRenderer {
 }
 
 function drawItem(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingContext2D): void {
-	const up = item.betData ? item.betData.up : '';
-	ctx.fillStyle = up ? 'green' : 'red';
 	if (item.text !== undefined) {
-		drawText(ctx, item.text.content, item.x - item.text.width / 2, item.text.y + (up ? -70 : 25));
+		ctx.fillStyle = item.color;
+		let yOffset = 0;
+
+		if (item.betData !== undefined) {
+			ctx.fillStyle = item.betData.up ? 'green' : 'red';
+			yOffset = item.betData.up ? -70 : 25;
+		} else {
+			ctx.fillStyle = item.color;
+		}
+
+		drawText(ctx, item.text.content, item.x - item.text.width / 2, item.text.y + yOffset);
 	}
 
 	drawShape(item, ctx);
