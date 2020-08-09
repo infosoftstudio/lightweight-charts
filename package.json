@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "version": "3.2.0",
+  "version": "3.2.1",
   "name": "@infosoftstudio/lightweight-charts",
   "author": "TradingView, Inc.",
   "license": "Apache-2.0",
@@ -15,10 +14,7 @@
   "module": "dist/lightweight-charts.esm.production.js",
   "main": "index.js",
   "typings": "dist/typings.d.ts",
-  "files": [
-    "dist/**",
-    "index.js"
-  ],
+  "files": ["dist/**", "index.js"],
   "keywords": [
     "financial-charting-library",
     "charting-library",
@@ -111,5 +107,6 @@
     "doc": "docs",
     "lib": "lib",
     "test": "tests"
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
