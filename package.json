@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:infosoftstudio/lightweight-charts.git"
+    "url": "git@github.com:infosoftstudio/lightweight-charts2.git"
   },
   "module": "dist/lightweight-charts.esm.production.js",
   "main": "index.js",
