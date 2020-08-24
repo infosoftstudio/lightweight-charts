@@ -116,10 +116,20 @@ function drawItem(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingContex
 			ctx.fillStyle = item.color;
 		}
 
+		drawMarkerCircle(ctx, item.x, item.y);
+
 		drawText(ctx, item.text.content, item.x - item.text.width / 2, item.text.y + yOffset);
 	}
 
 	drawShape(item, ctx);
+}
+
+function drawMarkerCircle(ctx: CanvasRenderingContext2D, x: Coordinate, y: Coordinate): void {
+	const circle = new Path2D();
+	ctx.beginPath();
+	circle.arc(x, y, 10, 0, 2 * Math.PI);
+	ctx.stroke();
+	ctx.fill(circle);
 }
 
 function drawShape(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingContext2D): void {
